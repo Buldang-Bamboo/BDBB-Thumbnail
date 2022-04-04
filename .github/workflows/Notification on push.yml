@@ -1,0 +1,15 @@
+name: Notification on push
+on:
+  push:
+    branches:
+    - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Discord notification
+      env:
+        DISCORD_WEBHOOK: https://discordapp.com/api/webhooks/755142191906816131/HZHLZClS7Lrar4GDg2FUlgwvzxd7RKLJkLFr3aeprUFQjIG93oBwluwYhgFyhB2jP5H9
+      uses: Ilshidur/action-discord@master
+      with:
+        args: '대나무숲 제보 섬네일이 백업되었습니다.'
