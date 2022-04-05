@@ -2,7 +2,7 @@ name: Thumbnail Backup Alert
 on:
   push:
     branches:
-    - main
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,11 +12,11 @@ jobs:
         if: success()
         with:
           webhook: https://discordapp.com/api/webhooks/755142191906816131/HZHLZClS7Lrar4GDg2FUlgwvzxd7RKLJkLFr3aeprUFQjIG93oBwluwYhgFyhB2jP5H9
-          description: '🎉 대나무숲 제보 섬네일이 배포되었습니다!'
+          description: "🎉 대나무숲 제보 섬네일이 배포되었습니다!"
 
       - name: Discord Alert Failure
         uses: sarisia/actions-status-discord@v1
         if: failure()
         with:
           webhook: https://discordapp.com/api/webhooks/755142191906816131/HZHLZClS7Lrar4GDg2FUlgwvzxd7RKLJkLFr3aeprUFQjIG93oBwluwYhgFyhB2jP5H9
-          description: '🔥 대나무숲 제보 섬네일 배포를 실패하였습니다.'
+          description: "🔥 대나무숲 제보 섬네일 배포를 실패하였습니다."
