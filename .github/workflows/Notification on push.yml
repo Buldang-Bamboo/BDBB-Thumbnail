@@ -7,9 +7,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Discord notification
-      env:
-        DISCORD_WEBHOOK: https://discordapp.com/api/webhooks/755142191906816131/HZHLZClS7Lrar4GDg2FUlgwvzxd7RKLJkLFr3aeprUFQjIG93oBwluwYhgFyhB2jP5H9
-      uses: Ilshidur/action-discord@master
-      with:
-        args: '대나무숲 제보 섬네일이 백업되었습니다.'
+      - name: Discord Alert Success
+        uses: sarisia/actions-status-discord@v1
+        if: success()
+        with:
+          webhook: https://discordapp.com/api/webhooks/755142191906816131/HZHLZClS7Lrar4GDg2FUlgwvzxd7RKLJkLFr3aeprUFQjIG93oBwluwYhgFyhB2jP5H9
+          description: '🎉 대나무숲 제보 섬네일이 배포되었습니다!'
+
+      - name: Discord Alert Failure
+        uses: sarisia/actions-status-discord@v1
+        if: failure()
+        with:
+          webhook: https://discordapp.com/api/webhooks/755142191906816131/HZHLZClS7Lrar4GDg2FUlgwvzxd7RKLJkLFr3aeprUFQjIG93oBwluwYhgFyhB2jP5H9
+          description: '🔥 대나무숲 제보 섬네일 배포를 실패하였습니다.'
