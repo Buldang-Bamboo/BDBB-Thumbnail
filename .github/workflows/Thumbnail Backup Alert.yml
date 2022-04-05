@@ -1,4 +1,4 @@
-name: Notification on push
+name: Thumbnail Backup Alert
 on:
   push:
     branches:
